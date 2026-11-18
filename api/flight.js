@@ -29,6 +29,7 @@ export default async function handler(req, res) {
     set(/(<meta property="og:description" content=")[^"]*"/, `$1${attr(desc)}"`); set(/(<meta name="twitter:description" content=")[^"]*"/, `$1${attr(desc)}"`);
     set(/(<meta property="og:image" content=")[^"]*"/, `$1${attr(img)}"`); set(/(<meta name="twitter:image" content=")[^"]*"/, `$1${attr(img)}"`);
     set(/(<meta property="og:url" content=")[^"]*"/, `$1${attr(host + path)}"`);
+    set(/\n?<meta property="og:video[^>]*>/g, ''); // a flight's page shares its own card, not the site's video
   }
   if (!html.includes('<base href=')) html = html.replace('<head>', '<head>\n<base href="/">'); // the page's files are addressed from the site root, not from /f/...
   res.statusCode = 200; res.setHeader('content-type', 'text/html; charset=utf-8');
