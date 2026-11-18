@@ -1,0 +1,49 @@
+{
+  "headers": [
+    {
+      "source": "/d/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/vendor/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/radar/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/f/:code/:date",
+      "destination": "/api/flight?code=:code&date=:date"
+    },
+    {
+      "source": "/f/:code",
+      "destination": "/api/flight?code=:code"
+    }
+  ],
+  "functions": {
+    "api/flight.js": {
+      "includeFiles": "index.html"
+    },
+    "api/og.js": {
+      "maxDuration": 20
+    }
+  }
+}

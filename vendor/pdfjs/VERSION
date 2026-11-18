@@ -1,0 +1,1 @@
+pdfjs-dist 6.5.438 (legacy build), Apache-2.0. Only pdf.min.mjs, its matching pdf.worker.min.mjs and the image-decoder wasm; loaded only when a PDF is dropped.

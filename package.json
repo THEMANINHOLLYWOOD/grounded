@@ -1,0 +1,9 @@
+{
+  "name": "grounded",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/og": "^0.8.6",
+    "ws": "^8.18.0"
+  }
+}
